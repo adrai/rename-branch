@@ -1,0 +1,1 @@
+curl -u $GH_USERNAME:$GH_TOKEN -H 'Accept: application/vnd.github.v3+json' "https://api.github.com/orgs/$GH_ORG/repos?type=owner&page=1" | jq '.[] | select(.fork == false) | select(.default_branch == "master") | .full_name' | sed 's/"//g'
